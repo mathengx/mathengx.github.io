@@ -2842,16 +2842,20 @@ a:hover strong {
 #footer {
   padding: 1.5em 0 2em 0;
   background: #ffffff;
-  color: var(--color-text);
+  color: var(--color-border);
   text-align: center;
+  border-top: none;   /* これで #footer 側の線を消す */
+  box-shadow: none;   /* 影っぽいラインも消す */
 }
+}
+
 
 /* フッターのコピーライト */
 #copyright {
   margin-top: 0.5em;
   padding-top: 0.5em;
   border-top: 1px solid var(--color-border);
-  color: var(--color-text);
+  color: var(--color-border);
 }
 
 /* フッターのリンクを中央に横並び */
