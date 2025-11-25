@@ -2744,10 +2744,18 @@ h2 {
   margin: 0 0 1em 0;
 }
 
-/* タイトル（影を消して濃いグレーに） */
+/* タイトル（影を消して濃いグレーに）
+   多言語で2行以上になっても重ならないように line-height を広めにする */
 #header h1 {
   color: var(--color-heading);
   text-shadow: none;
+  line-height: 1.25;          /* ★追加：行間を確保 */
+}
+
+/* 長い英語・ドイツ語などでも途中で折り返せるように */
+#header h1,
+#header h1 a {
+  word-break: break-word;     /* ★追加 */
 }
 
 #logo a {
@@ -2847,8 +2855,6 @@ a:hover strong {
   border-top: none;   /* これで #footer 側の線を消す */
   box-shadow: none;   /* 影っぽいラインも消す */
 }
-}
-
 
 /* フッターのコピーライト */
 #copyright {
@@ -2962,14 +2968,6 @@ button:hover,
   z-index: 10001;  /* ナビより手前 */
 }
 
-/* モバイル表示の調整（スマホではロゴと重ならないように少し下にずらす） */
-@media screen and (max-width: 736px) {
-  #google_translate_element {
-    top: 10px;
-    right: 10px;
-  }
-}
-
 /* アイコン非表示 */
 #google_translate_element .goog-te-gadget-icon {
   display: none;
@@ -2982,13 +2980,13 @@ button:hover,
   padding: 0 !important;
 }
 
-/* スマホ表示（例: 幅736px以下）の時は配置を自然な流れに戻す */
+/* モバイル表示の調整（スマホではロゴと重ならないように少し下にずらす） */
 @media screen and (max-width: 736px) {
   #google_translate_element {
-    position: relative; /* または static */
+    position: relative;
     top: auto;
     right: auto;
-    margin: 10px; /* 適度な余白 */
+    margin: 10px;
     text-align: center;
   }
 }
